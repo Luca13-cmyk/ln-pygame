@@ -1,15 +1,26 @@
 import pygame
+from pygame import Surface
 
 # Formatacao: CTRL + ALT + L
+
+W_WIDTH = 576
+W_HEIGHT = 324
+
 # Inicializar o modulo pygame
 pygame.init()
-
-# Criar janela
 print("setup start")
-window = pygame.display.set_mode(size=(600, 480))
+
+# Criar janela pygame
+window: Surface = pygame.display.set_mode(size=(W_WIDTH, W_HEIGHT))
 
 # Carregar imagem e gerar uma superficie
-bg_surf = pygame.image.load('./asset/bg.png')
+bg_surf: Surface = pygame.image.load('./asset/bg.png')
+
+# Desenhar na janela
+window.blit(source=bg_surf, dest=(0, 0))
+
+# Atualizar a janela
+pygame.display.flip()
 print("setup end")
 clock = pygame.time.Clock()
 running = True
