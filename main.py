@@ -37,6 +37,7 @@ running = True
 pygame.mixer_music.load('./asset/fase1.mp3')
 pygame.mixer_music.play(-1)
 pygame.mixer_music.set_volume(0.1)
+#
 
 print("setup end")
 print("loop start")
