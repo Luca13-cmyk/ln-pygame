@@ -16,6 +16,7 @@ while running:
     # # pygame.QUIT event means the user clicked X to close your window
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
+            print("loop end")
             running = False
     pass
 
