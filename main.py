@@ -27,12 +27,17 @@ window.blit(source=player1_surf, dest=player1_rect)
 
 # Atualizar a janela
 pygame.display.flip()
-print("setup end")
+
 
 # Colocar um relogio no jogo
 clock = pygame.time.Clock()
 running = True
 
+# Carregar musica e deixar ele tocando
+pygame.mixer_music.load('./asset/fase1.mp3')
+pygame.mixer_music.play(-1)
+
+print("setup end")
 print("loop start")
 while running:
     clock.tick(140)  # esse loop esta acontecendo 140 vezes por segundo
