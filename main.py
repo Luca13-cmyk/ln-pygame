@@ -7,6 +7,9 @@ pygame.init()
 # Criar janela
 print("setup start")
 window = pygame.display.set_mode(size=(600, 480))
+
+# Carregar imagem e gerar uma superficie
+bg_surf = pygame.image.load('./asset/bg.png')
 print("setup end")
 clock = pygame.time.Clock()
 running = True
