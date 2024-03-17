@@ -14,10 +14,12 @@ print("setup start")
 window: Surface = pygame.display.set_mode(size=(W_WIDTH, W_HEIGHT))
 
 # Carregar imagem e gerar uma superficie
-bg_surf: Surface = pygame.image.load('./asset/bg.png')
+bg_surf: Surface = pygame.image.load('./asset/bg.png').convert_alpha()
+player1_surf: Surface = pygame.image.load('./asset/player1.png').convert_alpha()
 
 # Desenhar na janela
 window.blit(source=bg_surf, dest=(0, 0))
+window.blit(source=player1_surf, dest=(100, 100))
 
 # Atualizar a janela
 pygame.display.flip()
