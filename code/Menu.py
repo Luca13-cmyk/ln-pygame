@@ -31,7 +31,6 @@ class Menu:
                     self.menu_text(20, MENU_OPTION[i], COLOR_WHITE, ((WIN_WIDTH / 2), 200 + 30 * i))
             pygame.display.flip()
 
-
             # Verificar eventos
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -48,7 +47,7 @@ class Menu:
                             menu_option -= 1
                         else:
                             menu_option = len(MENU_OPTION) - 1
-                    if event.type == pygame.K_RETURN:  # ENTER
+                    if event.key == pygame.K_RETURN:  # ENTER
                         return MENU_OPTION[menu_option]
 
     def menu_text(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
@@ -56,5 +55,3 @@ class Menu:
         text_surf: Surface = text_font.render(text, True, text_color)
         text_rect: Rect = text_surf.get_rect(center=text_center_pos)
         self.window.blit(source=text_surf, dest=text_rect)
-
-# 1:58
