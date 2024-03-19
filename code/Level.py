@@ -13,7 +13,7 @@ class Level:
         self.name = name
         self.mode = menu_option  # opcao do menu
         self.entity_list: list[Entity] = []
-        self.entity_list.append(EntityFactory.get_entity('Level1Bg0', (0, 0)))
+        self.entity_list.extend(EntityFactory.get_entity('Level1Bg'))
 
     def run(self):
         while True:
