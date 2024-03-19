@@ -1,10 +1,12 @@
 #!/usr/bin/python
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
+from code.Background import Background
+
 
 class EntityFactory:
-    def __init__(self):
-        pass
 
-    def get_entity(self, entity_type):
-        pass
-
+    @staticmethod
+    def get_entity(entity_name: str, position: tuple):
+        match entity_name:
+            case 'Level1Bg0':
+                return Background(f'Level1Bg0', position)
