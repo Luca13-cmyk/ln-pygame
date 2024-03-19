@@ -19,4 +19,5 @@ class Level:
         while True:
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)
+                ent.move()
             pygame.display.flip()  # Atualize a tela

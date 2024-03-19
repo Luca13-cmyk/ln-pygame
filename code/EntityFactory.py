@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from code.Background import Background
-from code.Const import IMAGE_LEVEL
+from code.Const import IMAGE_LEVEL, WIN_WIDTH
 
 
 class EntityFactory:
@@ -12,5 +12,6 @@ class EntityFactory:
             case 'Level1Bg':
                 list_bg = []
                 for i in range(IMAGE_LEVEL[entity_name]):
-                    list_bg.append(Background(f'Level1Bg{i}', position))
+                    list_bg.append(Background(f'Level1Bg{i}', (0, 0)))
+                    list_bg.append(Background(f'Level1Bg{i}', (WIN_WIDTH, 0)))
                 return list_bg
