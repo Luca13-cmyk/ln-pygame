@@ -18,6 +18,7 @@ class Level:
         self.mode = menu_option  # opcao do menu
         self.entity_list: list[Entity] = []
         self.entity_list.extend(EntityFactory.get_entity('Level1Bg'))
+        self.entity_list.append(EntityFactory.get_entity('Player1'))
 
     def run(self):
         # pygame.mixer_music.load(f'./asset/{self.name}.mp3')
