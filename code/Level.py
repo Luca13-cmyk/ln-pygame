@@ -31,10 +31,16 @@ class Level:
 
         while True:
             clock.tick(60)  # O while vai rodar 60x por segundo
+            # For para desenhar todas as entidades
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move()
+            # Texto a ser printado na tela
             self.level_text(14, f'fps: {clock.get_fps() : .0f}', COLOR_WHITE, (10, 10))
+            self.level_text(14, f'entidades: {len(self.entity_list)}', COLOR_WHITE, (10, 25))
+            # Atualizar tela
+            pygame.display.flip()  # Atualize a tela
+            # Eventos
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
@@ -42,7 +48,7 @@ class Level:
                 if event.type == EVENT_ENEMY:
                     coice = random.choice(('Enemy1', 'Enemy2'))
                     self.entity_list.append(EntityFactory.get_entity(coice))
-            pygame.display.flip()  # Atualize a tela
+
 
     def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple):
         text_font: Font = pygame.font.SysFont(name="Lucida Sans Typewriter", size=text_size)
