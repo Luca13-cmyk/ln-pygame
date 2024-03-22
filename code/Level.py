@@ -10,6 +10,7 @@ from pygame.font import Font
 from code.Const import COLOR_WHITE, MENU_OPTION, EVENT_ENEMY
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
+from code.EntityMediator import EntityMediator
 
 
 class Level:
@@ -31,15 +32,23 @@ class Level:
 
         while True:
             clock.tick(60)  # O while vai rodar 60x por segundo
+
             # For para desenhar todas as entidades
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move()
+
             # Texto a ser printado na tela
             self.level_text(14, f'fps: {clock.get_fps() : .0f}', COLOR_WHITE, (10, 10))
             self.level_text(14, f'entidades: {len(self.entity_list)}', COLOR_WHITE, (10, 25))
+
             # Atualizar tela
-            pygame.display.flip()  # Atualize a tela
+            pygame.display.flip()
+
+            # Verificar relacionamentos de entidades
+            EntityMediator.verify_collision(entity_list=self.entity_list)
+            EntityMediator.verify_health(entity_list=self.entity_list)
+
             # Eventos
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -48,7 +57,6 @@ class Level:
                 if event.type == EVENT_ENEMY:
                     coice = random.choice(('Enemy1', 'Enemy2'))
                     self.entity_list.append(EntityFactory.get_entity(coice))
-
 
     def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple):
         text_font: Font = pygame.font.SysFont(name="Lucida Sans Typewriter", size=text_size)
