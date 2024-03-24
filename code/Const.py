@@ -1,9 +1,11 @@
-# C
 import pygame
 
-COLOR_ORANGE = (255, 128, 0)
-COLOR_WHITE = (255, 255, 255)
-COLOR_YELLOW = (255, 255, 128)
+# C
+C_ORANGE = (255, 128, 0)
+C_WHITE = (255, 255, 255)
+C_YELLOW = (255, 255, 128)
+C_RED = (235, 51, 36)
+C_CYAN = (0, 128, 128)
 # M
 MENU_OPTION = ("NEW GAME 1P",
                "NEW GAME 2P - COOPERATIVE",
@@ -68,6 +70,23 @@ ENTITY_DAMAGE = {'Level1Bg0': 0,
                  'Enemy1': 1,
                  'Enemy2': 1,
                  }
+
+ENTITY_SCORE = {'Level1Bg0': 0,
+                'Level1Bg1': 0,
+                'Level1Bg2': 0,
+                'Level1Bg3': 0,
+                'Level1Bg4': 0,
+                'Level1Bg5': 0,
+                'Level1Bg6': 0,
+                'Player1': 0,
+                'Player2': 0,
+                'Player1Shot': 0,
+                'Player2Shot': 0,
+                'Enemy1Shot': 0,
+                'Enemy2Shot': 0,
+                'Enemy1': 100,
+                'Enemy2': 125,
+                }
 
 ENTITY_SHOT_DELAY = {
     'Player1': 20,
